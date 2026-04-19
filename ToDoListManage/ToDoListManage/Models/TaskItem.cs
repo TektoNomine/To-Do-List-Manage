@@ -11,6 +11,19 @@ namespace ToDoListManage.Models
         public DateTime Reminder { get; set; }
         public bool IsCompleted { get; set; }
 
+        public TaskItem()
+        {
+        }
+        public TaskItem(string title, string description, string category, DateTime deadline, DateTime reminder, bool isCompleted)
+        {
+            Title = title;
+            Description = description;
+            Category = category;
+            Deadline = deadline;
+            Reminder = reminder;
+            IsCompleted = isCompleted;
+        }
+
         public override string ToString()
         {
             return Title + " | " + Category + " | " + Deadline.ToShortDateString();
