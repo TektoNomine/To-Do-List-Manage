@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using ToDoListManage.Models;
+using System.Linq;
 
 namespace ToDoListManage.UI
 {
@@ -13,7 +14,15 @@ namespace ToDoListManage.UI
         {
             InitializeComponent();
             SetupTaskGrid();
+
+            //set up data
+            tasks.Add(new TaskItem("Read book", "Read 30 pages", "Study", new DateTime(2026, 4, 23), new DateTime(2026, 4, 22), true));
+            tasks.Add(new TaskItem("Clean room", "Vacuum and desk", "Home", new DateTime(2026, 4, 18), new DateTime(2026, 4, 17), false));
+            tasks.Add(new TaskItem("Math homework", "Do exercises 5 and 6", "Study", new DateTime(2026, 4, 25), new DateTime(2026, 4, 24), false));
+            tasks.Add(new TaskItem("Call teacher", "Ask about project", "Work", new DateTime(2026, 4, 22), new DateTime(2026, 4, 21), false));
+            tasks.Add(new TaskItem("Buy food", "Milk and bread", "Personal", new DateTime(2026, 4, 20), new DateTime(2026, 4, 19), true));
             RefreshTaskList();
+ 
         }
 
         private void SetupTaskGrid()
@@ -90,9 +99,41 @@ namespace ToDoListManage.UI
             }
         }
 
+
         private void MainForm_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void SortRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvTasks.Rows.Clear();
+
+            if (rdoTitle.Checked)
+            {
+                tasks = tasks.OrderBy(t => t.Title).ToList();
+            }
+            else if (rdoDeadline.Checked)
+            {
+                tasks = tasks.OrderBy(t => t.Deadline).ToList();
+            }
+            else if (rdoCategory.Checked)
+            {
+                tasks = tasks.OrderBy(t => t.Category).ToList();
+            }
+
+            foreach (TaskItem task in tasks)
+            {
+                dgvTasks.Rows.Add(
+                    task.Title,
+                    task.Description,
+                    task.Category,
+                    task.Deadline.ToShortDateString(),
+                    task.Reminder.ToShortDateString(),
+                    task.IsCompleted ? "Yes" : "No"
+                );
+            }
+        }
+        
     }
 }
