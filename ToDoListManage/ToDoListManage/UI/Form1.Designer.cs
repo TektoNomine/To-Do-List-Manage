@@ -22,7 +22,12 @@
             btnEditTask = new Button();
             lblTitle = new Label();
             dgvTasks = new DataGridView();
+            grpSortTasks = new GroupBox();
+            rdoCategory = new RadioButton();
+            rdoDeadline = new RadioButton();
+            rdoTitle = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)dgvTasks).BeginInit();
+            grpSortTasks.SuspendLayout();
             SuspendLayout();
             // 
             // btnAddTask
@@ -64,9 +69,58 @@
             dgvTasks.Size = new Size(842, 231);
             dgvTasks.TabIndex = 4;
             // 
+            // grpSortTasks
+            // 
+            grpSortTasks.Controls.Add(rdoCategory);
+            grpSortTasks.Controls.Add(rdoDeadline);
+            grpSortTasks.Controls.Add(rdoTitle);
+            grpSortTasks.Location = new Point(367, 0);
+            grpSortTasks.Name = "grpSortTasks";
+            grpSortTasks.Size = new Size(517, 81);
+            grpSortTasks.TabIndex = 5;
+            grpSortTasks.TabStop = false;
+            grpSortTasks.Text = "Sort Options";
+            // 
+            // rdoCategory
+            // 
+            rdoCategory.AutoSize = true;
+            rdoCategory.Location = new Point(326, 37);
+            rdoCategory.Name = "rdoCategory";
+            rdoCategory.Size = new Size(174, 36);
+            rdoCategory.TabIndex = 2;
+            rdoCategory.TabStop = true;
+            rdoCategory.Text = "By Category";
+            rdoCategory.UseVisualStyleBackColor = true;
+            rdoCategory.CheckedChanged += SortRadioButton_CheckedChanged;
+            // 
+            // rdoDeadline
+            // 
+            rdoDeadline.AutoSize = true;
+            rdoDeadline.Location = new Point(147, 37);
+            rdoDeadline.Name = "rdoDeadline";
+            rdoDeadline.Size = new Size(173, 36);
+            rdoDeadline.TabIndex = 1;
+            rdoDeadline.TabStop = true;
+            rdoDeadline.Text = "By Deadline";
+            rdoDeadline.UseVisualStyleBackColor = true;
+            rdoDeadline.CheckedChanged += SortRadioButton_CheckedChanged;
+            // 
+            // rdoTitle
+            // 
+            rdoTitle.AutoSize = true;
+            rdoTitle.Location = new Point(17, 37);
+            rdoTitle.Name = "rdoTitle";
+            rdoTitle.Size = new Size(124, 36);
+            rdoTitle.TabIndex = 0;
+            rdoTitle.TabStop = true;
+            rdoTitle.Text = "By Title";
+            rdoTitle.UseVisualStyleBackColor = true;
+            rdoTitle.CheckedChanged += SortRadioButton_CheckedChanged;
+            // 
             // MainForm
             // 
             ClientSize = new Size(896, 410);
+            Controls.Add(grpSortTasks);
             Controls.Add(dgvTasks);
             Controls.Add(lblTitle);
             Controls.Add(btnEditTask);
@@ -75,11 +129,17 @@
             Text = "To-Do List Manager";
             Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTasks).EndInit();
+            grpSortTasks.ResumeLayout(false);
+            grpSortTasks.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
 
         }
 
         private System.Windows.Forms.DataGridView dgvTasks;
+        private GroupBox grpSortTasks;
+        private RadioButton rdoCategory;
+        private RadioButton rdoDeadline;
+        private RadioButton rdoTitle;
     }
 }
