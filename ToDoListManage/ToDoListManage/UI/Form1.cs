@@ -22,7 +22,7 @@ namespace ToDoListManage.UI
             tasks.Add(new TaskItem("Call teacher", "Ask about project", "Work", new DateTime(2026, 4, 22), new DateTime(2026, 4, 21), false));
             tasks.Add(new TaskItem("Buy food", "Milk and bread", "Personal", new DateTime(2026, 4, 20), new DateTime(2026, 4, 19), true));
             RefreshTaskList();
- 
+
         }
 
         private void SetupTaskGrid()
@@ -134,6 +134,18 @@ namespace ToDoListManage.UI
                 );
             }
         }
-        
+
+        private void btnDeleteTask_Click(object sender, EventArgs e)
+        {
+            if (dgvTasks.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a task");
+                return;
+            }
+            int index = dgvTasks.SelectedRows[0].Index;
+            tasks.RemoveAt(index);
+
+            RefreshTaskList();
+        }
     }
 }

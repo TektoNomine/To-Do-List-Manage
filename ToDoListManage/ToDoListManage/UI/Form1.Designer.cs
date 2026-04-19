@@ -26,6 +26,7 @@
             rdoCategory = new RadioButton();
             rdoDeadline = new RadioButton();
             rdoTitle = new RadioButton();
+            btnDeleteTask = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvTasks).BeginInit();
             grpSortTasks.SuspendLayout();
             SuspendLayout();
@@ -117,9 +118,20 @@
             rdoTitle.UseVisualStyleBackColor = true;
             rdoTitle.CheckedChanged += SortRadioButton_CheckedChanged;
             // 
+            // btnDeleteTask
+            // 
+            btnDeleteTask.Location = new Point(294, 340);
+            btnDeleteTask.Name = "btnDeleteTask";
+            btnDeleteTask.Size = new Size(160, 40);
+            btnDeleteTask.TabIndex = 6;
+            btnDeleteTask.Text = "Delete Task";
+            btnDeleteTask.UseVisualStyleBackColor = true;
+            btnDeleteTask.Click += btnDeleteTask_Click;
+            // 
             // MainForm
             // 
             ClientSize = new Size(896, 410);
+            Controls.Add(btnDeleteTask);
             Controls.Add(grpSortTasks);
             Controls.Add(dgvTasks);
             Controls.Add(lblTitle);
@@ -141,5 +153,6 @@
         private RadioButton rdoCategory;
         private RadioButton rdoDeadline;
         private RadioButton rdoTitle;
+        private Button btnDeleteTask;
     }
 }
