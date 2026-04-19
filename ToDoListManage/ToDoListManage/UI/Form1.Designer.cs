@@ -27,6 +27,7 @@
             rdoDeadline = new RadioButton();
             rdoTitle = new RadioButton();
             btnDeleteTask = new Button();
+            btnCompleteTask = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvTasks).BeginInit();
             grpSortTasks.SuspendLayout();
             SuspendLayout();
@@ -128,9 +129,20 @@
             btnDeleteTask.UseVisualStyleBackColor = true;
             btnDeleteTask.Click += btnDeleteTask_Click;
             // 
+            // btnCompleteTask
+            // 
+            btnCompleteTask.Location = new Point(460, 340);
+            btnCompleteTask.Name = "btnCompleteTask";
+            btnCompleteTask.Size = new Size(247, 40);
+            btnCompleteTask.TabIndex = 7;
+            btnCompleteTask.Text = "Mark as Completed";
+            btnCompleteTask.UseVisualStyleBackColor = true;
+            btnCompleteTask.Click += btnCompleteTask_Click;
+            // 
             // MainForm
             // 
             ClientSize = new Size(896, 410);
+            Controls.Add(btnCompleteTask);
             Controls.Add(btnDeleteTask);
             Controls.Add(grpSortTasks);
             Controls.Add(dgvTasks);
@@ -154,5 +166,6 @@
         private RadioButton rdoDeadline;
         private RadioButton rdoTitle;
         private Button btnDeleteTask;
+        private Button btnCompleteTask;
     }
 }

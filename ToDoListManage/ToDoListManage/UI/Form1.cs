@@ -147,5 +147,19 @@ namespace ToDoListManage.UI
 
             RefreshTaskList();
         }
+
+        private void btnCompleteTask_Click(object sender, EventArgs e)
+        {
+            if (dgvTasks.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select task");
+                return;
+            }
+
+            int index = dgvTasks.SelectedRows[0].Index;
+            tasks[index].IsCompleted = true;
+
+            RefreshTaskList();
+        }
     }
 }
