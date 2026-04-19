@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using ToDoListManage.Models;
 using System.Linq;
+using Microsoft.VisualBasic;
 
 namespace ToDoListManage.UI
 {
@@ -17,11 +18,13 @@ namespace ToDoListManage.UI
 
             //set up data
             tasks.Add(new TaskItem("Read book", "Read 30 pages", "Study", new DateTime(2026, 4, 23), new DateTime(2026, 4, 22), true));
-            tasks.Add(new TaskItem("Clean room", "Vacuum and desk", "Home", new DateTime(2026, 4, 18), new DateTime(2026, 4, 17), false));
-            tasks.Add(new TaskItem("Math homework", "Do exercises 5 and 6", "Study", new DateTime(2026, 4, 25), new DateTime(2026, 4, 24), false));
+            tasks.Add(new TaskItem("Clean room", "Vacuum and desk", "Home", new DateTime(2026, 4, 19), new DateTime(2026, 4, 17), false));
+            tasks.Add(new TaskItem("Math homework", "Do exercises 5 and 6", "Study", new DateTime(2026, 4, 24), new DateTime(2026, 4, 19), false));
             tasks.Add(new TaskItem("Call teacher", "Ask about project", "Work", new DateTime(2026, 4, 22), new DateTime(2026, 4, 21), false));
-            tasks.Add(new TaskItem("Buy food", "Milk and bread", "Personal", new DateTime(2026, 4, 20), new DateTime(2026, 4, 19), true));
+            tasks.Add(new TaskItem("Buy food", "Milk and bread", "Personal", new DateTime(2026, 4, 20), new DateTime(2026, 4, 19), false));
             RefreshTaskList();
+
+
 
         }
 
@@ -160,6 +163,47 @@ namespace ToDoListManage.UI
             tasks[index].IsCompleted = true;
 
             RefreshTaskList();
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            List<TaskItem> reminderTasks = new List<TaskItem>();
+            List<TaskItem> deadlineTasks = new List<TaskItem>();
+            string msgstring = string.Empty;
+            foreach (TaskItem task in tasks)
+            {
+                if (task.Reminder.Date == DateTime.Today.Date && !task.IsCompleted)
+                {
+                    reminderTasks.Add(task);
+                }
+            }
+
+            if (reminderTasks.Count > 0)
+            {
+                foreach (TaskItem task in reminderTasks)
+                {
+                    msgstring += task.Title + " is due " + task.Deadline.ToShortDateString() + Environment.NewLine;
+                }
+                MessageBox.Show(msgstring, "Reminder");
+            }
+
+            foreach (TaskItem task in tasks)
+            {
+                if (task.Deadline.Date == DateTime.Today.Date && !task.IsCompleted)
+                {
+                    deadlineTasks.Add(task);
+                }
+            }
+
+            if (deadlineTasks.Count > 0)
+            {
+                msgstring = string.Empty;
+                foreach (TaskItem task in deadlineTasks)
+                {
+                    msgstring += task.Title + " is due today!" + Environment.NewLine;
+                }
+                MessageBox.Show(msgstring, "Deadline Reminder");
+            }
         }
     }
 }

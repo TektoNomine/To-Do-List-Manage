@@ -58,7 +58,7 @@
             lblTitle.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
             lblTitle.Location = new Point(25, 20);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(285, 44);
+            lblTitle.Size = new Size(149, 24);
             lblTitle.TabIndex = 3;
             lblTitle.Text = "To-Do List App";
             // 
@@ -88,7 +88,7 @@
             rdoCategory.AutoSize = true;
             rdoCategory.Location = new Point(326, 37);
             rdoCategory.Name = "rdoCategory";
-            rdoCategory.Size = new Size(174, 36);
+            rdoCategory.Size = new Size(89, 19);
             rdoCategory.TabIndex = 2;
             rdoCategory.TabStop = true;
             rdoCategory.Text = "By Category";
@@ -100,7 +100,7 @@
             rdoDeadline.AutoSize = true;
             rdoDeadline.Location = new Point(147, 37);
             rdoDeadline.Name = "rdoDeadline";
-            rdoDeadline.Size = new Size(173, 36);
+            rdoDeadline.Size = new Size(87, 19);
             rdoDeadline.TabIndex = 1;
             rdoDeadline.TabStop = true;
             rdoDeadline.Text = "By Deadline";
@@ -112,7 +112,7 @@
             rdoTitle.AutoSize = true;
             rdoTitle.Location = new Point(17, 37);
             rdoTitle.Name = "rdoTitle";
-            rdoTitle.Size = new Size(124, 36);
+            rdoTitle.Size = new Size(64, 19);
             rdoTitle.TabIndex = 0;
             rdoTitle.TabStop = true;
             rdoTitle.Text = "By Title";
@@ -152,12 +152,12 @@
             Name = "MainForm";
             Text = "To-Do List Manager";
             Load += MainForm_Load;
+            Shown += MainForm_Shown;
             ((System.ComponentModel.ISupportInitialize)dgvTasks).EndInit();
             grpSortTasks.ResumeLayout(false);
             grpSortTasks.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
-
         }
 
         private System.Windows.Forms.DataGridView dgvTasks;

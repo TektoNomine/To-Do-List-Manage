@@ -8,23 +8,23 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\k00325499\\.nuget\\packages\\": {},
+    "C:\\Users\\timoh\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\k00325499\\Desktop\\New folder\\ToDoListManage\\ToDoListManage\\ToDoListManage.csproj",
+      "projectUniqueName": "C:\\Users\\timoh\\Source\\Repos\\To-Do-List-Manage\\ToDoListManage\\ToDoListManage\\ToDoListManage.csproj",
       "projectName": "ToDoListManage",
-      "projectPath": "C:\\Users\\k00325499\\Desktop\\New folder\\ToDoListManage\\ToDoListManage\\ToDoListManage.csproj",
-      "packagesPath": "C:\\Users\\k00325499\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\k00325499\\Desktop\\New folder\\ToDoListManage\\ToDoListManage\\obj\\",
+      "projectPath": "C:\\Users\\timoh\\Source\\Repos\\To-Do-List-Manage\\ToDoListManage\\ToDoListManage\\ToDoListManage.csproj",
+      "packagesPath": "C:\\Users\\timoh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\timoh\\Source\\Repos\\To-Do-List-Manage\\ToDoListManage\\ToDoListManage\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\k00325499\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\timoh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -49,9 +49,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
+        "auditMode": "all"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -75,7 +75,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
