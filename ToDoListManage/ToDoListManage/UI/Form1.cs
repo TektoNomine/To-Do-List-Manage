@@ -165,45 +165,66 @@ namespace ToDoListManage.UI
             RefreshTaskList();
         }
 
-        private void MainForm_Shown(object sender, EventArgs e)
-        {
-            List<TaskItem> reminderTasks = new List<TaskItem>();
-            List<TaskItem> deadlineTasks = new List<TaskItem>();
-            string msgstring = string.Empty;
-            foreach (TaskItem task in tasks)
-            {
-                if (task.Reminder.Date == DateTime.Today.Date && !task.IsCompleted)
-                {
-                    reminderTasks.Add(task);
-                }
-            }
-
-            if (reminderTasks.Count > 0)
-            {
-                foreach (TaskItem task in reminderTasks)
-                {
-                    msgstring += task.Title + " is due " + task.Deadline.ToShortDateString() + Environment.NewLine;
-                }
-                MessageBox.Show(msgstring, "Reminder");
-            }
-
-            foreach (TaskItem task in tasks)
-            {
-                if (task.Deadline.Date == DateTime.Today.Date && !task.IsCompleted)
-                {
-                    deadlineTasks.Add(task);
-                }
-            }
-
-            if (deadlineTasks.Count > 0)
-            {
-                msgstring = string.Empty;
-                foreach (TaskItem task in deadlineTasks)
-                {
-                    msgstring += task.Title + " is due today!" + Environment.NewLine;
-                }
-                MessageBox.Show(msgstring, "Deadline Reminder");
-            }
-        }
+         private void MainForm_Shown(object sender, EventArgs e)
+         {
+             List<TaskItem> reminderTasks = new List<TaskItem>();
+             List<TaskItem> deadlineTasks = new List<TaskItem>();
+             List<TaskItem> overdueTasks = new List<TaskItem>();
+             string msgstring = string.Empty;
+             foreach (TaskItem task in tasks)
+             {
+                 if (task.Reminder.Date == DateTime.Today.Date && !task.IsCompleted)
+                 {
+                     reminderTasks.Add(task);
+                 }
+             }
+        
+             if (reminderTasks.Count > 0)
+             {
+                 foreach (TaskItem task in reminderTasks)
+                 {
+                     msgstring += task.Title + " is due " + task.Deadline.ToShortDateString() + Environment.NewLine;
+                 }
+                 MessageBox.Show(msgstring, "Reminder");
+             }
+        
+             foreach (TaskItem task in tasks)
+             {
+                 if (task.Deadline.Date == DateTime.Today.Date && !task.IsCompleted)
+                 {
+                     deadlineTasks.Add(task);
+                 }
+             }
+        
+             if (deadlineTasks.Count > 0)
+             {
+                 msgstring = string.Empty;
+                 foreach (TaskItem task in deadlineTasks)
+                 {
+                     msgstring += task.Title + " is due today!" + Environment.NewLine;
+                 }
+                 MessageBox.Show(msgstring, "Deadline Reminder");
+             }
+        
+        
+        
+             foreach (TaskItem task in tasks)
+             {
+                 if (task.Deadline.Date < DateTime.Today.Date && !task.IsCompleted)
+                 {
+                     overdueTasks.Add(task);
+                 }
+             }
+        
+             if (overdueTasks.Count > 0)
+             {
+                 msgstring = string.Empty;
+                 foreach (TaskItem task in overdueTasks)
+                 {
+                     msgstring += task.Title + " is overdue!" + Environment.NewLine;
+                 }
+                 MessageBox.Show(msgstring, "Overdue Reminder");
+             }
+         }
     }
 }
